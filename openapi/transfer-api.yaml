@@ -1,0 +1,11 @@
+openapi: 3.0.3
+
+info:
+  title: ShadowBank Transfer API
+  version: 0.1.0
+  description: API for creating and managing money transfers.
+
+paths:
+  /transfers:
+    post:
+      summary: Create a money transfer
