@@ -71,9 +71,44 @@ paths:
 
         '400':
           description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
 
         '404':
           description: Account not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
 
         '422':
           description: Business validation failed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+components:
+  schemas:
+    ErrorResponse:
+      type: object
+
+      required:
+        - code
+        - message
+        - correlationId
+
+      properties:
+        code:
+          type: string
+          example: ACCOUNT_NOT_FOUND
+
+        message:
+          type: string
+          example: The source account does not exist.
+
+        correlationId:
+          type: string
+          example: CORR-8f92a1
